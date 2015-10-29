@@ -2,8 +2,10 @@ import Backbone from 'backbone';
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import HomeComponent from './views/home';
-import FormComponent from './views/formplay';
+import HomeComponent from './views/homeView';
+import DetailComponent from './views/detailView';
+import AddComponent from './views/addView';
+import EditComponent from './views/editView';
 import SpinnerComponent from './views/spinner';
 
 export default Backbone.Router.extend({
@@ -11,8 +13,10 @@ export default Backbone.Router.extend({
 
 
   routes: {
-        "" : "showHome",
-    "form" : "showForm"
+        "" : "showHomeView",
+    "detailView" : "showDetailView",
+    "addView"    : "showAddView",
+    "editView"   : "showEditView"
 
   },
 
@@ -25,7 +29,7 @@ export default Backbone.Router.extend({
       trigger: true
     });
   },
-//if you want to replace React.Dom on line 39+46
+//if you want to replace React.Dom on line 39
 // render (component) {
 //   ReactDom.render(component, this.el);
 // },
@@ -41,4 +45,10 @@ start() {
 
   //showHome
 
-  //showForm
+  //show Detail
+
+  //show Add
+  //show Edit
+
+
+
