@@ -3,14 +3,17 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 
-import { HomeComponent,
-DetailComponent,
-AddComponent,
-EditComponent,
-SpinnerComponent} from './views';
-import { allPics,
-  picModel
-} from './modules';
+import HomeComponent from './views/homeView';
+import DetailComponent from './views/detailspage';
+import AddComponent from './views/addView';
+import EditComponent from './views/editView';
+import SpinnerComponent from './views/spinner';
+import PicList from './views/homeView';
+import PreviewPic from './views/details';
+
+import allPics from './modules/allPics';
+import picModel from './modules/picModel';
+
 
 export default Backbone.Router.extend({
 
@@ -18,7 +21,7 @@ export default Backbone.Router.extend({
 
   routes: {
         "" : "showHomeView",
-    "detailView/:id" : "showDetailView",
+    "details/:id" : "showDetails",
     "addView"    : "showAddView",
     "editView"   : "showEditView",
     "pic/:id"   : "showPic"
@@ -28,7 +31,8 @@ export default Backbone.Router.extend({
   initialize(appElement) {
     this.el =appElement;
     this.model = new picModel();
-    this.set = new allPics();
+    this.photos = new allPics();
+    this.router = this;
 
   },
 
@@ -37,10 +41,12 @@ export default Backbone.Router.extend({
       trigger: true
     });
   },
+
 //if you want to replace React.Dom on line 39
 render (component) {
   ReactDom.render(component, this.el);
 },
+
 //see comment above
 
 
@@ -63,7 +69,7 @@ render (component) {
     this.render(
       <EditComponent
       onHomeClick={() => this.goto('')}
-      onDetailClick={() => this.goto('detailView')}
+      onDetailClick={() => this.goto('details')}
       onEditClick={() => this.goto('editView')}
       onAddClick={() => this.goto('addView')}/>
       
@@ -92,14 +98,14 @@ render (component) {
 
     selectPic(id) {
     let pic = this.pics.toJSON().find(item => item.objectId === id);
-    this.navigate('pic/' + id, {trigger: true});
+    this.navigate('pics/' + id, {trigger: true});
 
     this.render(
-        <DetailComponent
+        <Detailspage
           onHomeClick={() => this.goto('')}
           onPicSelect={this.selectPic.bind(this)} 
-          onAddClick={() => this.goto('add')}
-          onEditClick={() => this.goto('edit')}
+          onAddClick={() => this.goto('addView')}
+          onEditClick={() => this.goto('editView')}
           src={image.photoURL}
           imageName={image.name}
           picAbout={image.ipsum}

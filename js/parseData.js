@@ -5,5 +5,5 @@ const APP_URL = 'https://api.parse.com/1/classes/MyPeeps';
 export{
   APP_URL,
   APP_KEY,
-  APP_ID
+  APP_ID 
 };

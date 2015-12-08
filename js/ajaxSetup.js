@@ -2,7 +2,8 @@ import $ from 'jquery';
 
 import{
 APP_ID,
-API_KEY
+API_KEY,
+APP_URL
 } from './parseData';
 
 

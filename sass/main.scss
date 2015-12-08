@@ -3,17 +3,34 @@
 @import "font-awesome";
 
 body {
-  background: #e2ebf3;
-  .h1{
+  text-align: center;
 
     }
   
   .button{
+  	margin: 0 5px;
+  	border: 1px solid blue;
+  	border-radius: 3px;
+  	color: white;
+  	cursor: pointer;
+  	background-color:red;
 
   }
 
-  .mainImage {
+.mainImage {
 
   }
 
+.picContainer {
+	margin: 20px
 }
+
+.picList {
+	width: 250px;
+	height: 250px;
+	text-align: center;
+	float: left;
+	overflow: hidden;
+	border: 1px solid blue;
+}
+

@@ -38,26 +38,6 @@ export default React.createClass({
           </div>
       </div>  
       
-      // <div>
-      //   <h1>Fauxstagram</h1>
-      // </div>
-        //CENTER IMAGE GOES HERE
-      //   <img id="mainImage" src="" alt="">
-      // <div>
-        // 4 BUTTONS TOTAL
-      //   <button onClick={this.HomeClickHandler}>Go to Home</button>
-      //   <button onClick={this.DetailClickHandler}>Go to Detail</button>
-      //   <button onClick={this.AddClickHandler}>Go to Add an Entry</button>
-      //   <button onClick={this.EditClickHandler}>Go to Edit an Entry</button>
-      // </div>
-      // 1 pic on left aside main view
-      // <div>
-      //on right 
-      //acct img in circle //follow box
-      // # of likes
-      //text from acct name, pict caption
-
-      // </div>
       );
   }
 });

@@ -1,21 +1,21 @@
 import React from 'react';
-import indivPic from './detailView';
+import Details from './details';
 
 export default React.createClass({
 
 //FILL THIS IN
 
 
-   spinClickHandler () {
-      this.props.onSpinClick();
+  spinClickHandler () {
+    this.props.onSpinClick();
   }, 
   
   addClickHandler () {
-      this.props.onAddClick();
+    this.props.onAddClick();
   },
 
-      editClickHandler () {
-      this.props.onEditClick();
+  editClickHandler () {
+    this.props.onEditClick();
   }, 
 
   selectHandler(id) {
@@ -23,14 +23,14 @@ export default React.createClass({
   },
   getPic(image) {
     return(
-        <indivPic src= {image.photoURL} id= {image.objectId} onSelect{this.selectHandler})/>
+        <Details src={image.photoURL} id={image.objectId} onSelect={this.selectHandler}/>
       );
   },
 
 
   render() {
     return (
-      <div className='picContainer'>
+      <div className='picContainer'>this
         <button onClick ={this.addClickHandler}>Add</button>
         <div className= 'picList'>
           {this.props.data.map(this.getPic)}
