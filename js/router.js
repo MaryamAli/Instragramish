@@ -3,16 +3,14 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 
-import HomeComponent from './views/homeView';
+import PicList from './views/home';
 import DetailComponent from './views/detailspage';
-import AddComponent from './views/addView';
-import EditComponent from './views/editView';
+import AddComponent from './views/add';
+import EditComponent from './views/edit';
 import SpinnerComponent from './views/spinner';
-import PicList from './views/homeView';
-import PreviewPic from './views/details';
-
-import allPics from './modules/allPics';
-import picModel from './modules/picModel';
+import SmallPic from './views/details';
+import AllPics from './allPics.js';
+import PicModel from './newPicModel.js';
 
 
 export default Backbone.Router.extend({
@@ -20,18 +18,19 @@ export default Backbone.Router.extend({
 
 
   routes: {
-        "" : "showHomeView",
-    "details/:id" : "showDetails",
-    "addView"    : "showAddView",
-    "editView"   : "showEditView",
-    "pic/:id"   : "showPic"
+        "" : "home",
+    "pics/:id" : "showDetails",
+    "addView"    : "showAdd",
+    "editView"   : "showEdit",
+    "images/:id"   : "showImage"
 
   },
 
-  initialize(appElement) {
-    this.el =appElement;
-    this.model = new picModel();
-    this.photos = new allPics();
+  initialize: function(appElement) {
+    this.el = appElement;
+
+    // this.model = new PicModel();
+    this.photos = new AllPics();
     this.router = this;
 
   },
@@ -43,24 +42,24 @@ export default Backbone.Router.extend({
   },
 
 //if you want to replace React.Dom on line 39
-render (component) {
-  ReactDom.render(component, this.el);
-},
+  render(component) {
+    ReactDom.render(component, this.el);
+  },
 
 //see comment above
 
 
-  showHomeView() {
+  home() {
 
     
     
     this.photos.fetch().then(() => {
       this.render(
-        <picList 
-          onPicSelect={this.selectImage.bind(this)} 
+        <PicList 
+          onPicSelect={this.selectPic.bind(this)} 
           data={this.photos.toJSON()}
-          onAddClick={() => this.goto('addView')}
-          onEditClick={() => this.goto('editView')}/>
+          onAddClick={() => this.goto('add')}
+          onEditClick={() => this.goto('edit')}/>
       );
     });
   },
@@ -70,8 +69,8 @@ render (component) {
       <EditComponent
       onHomeClick={() => this.goto('')}
       onDetailClick={() => this.goto('details')}
-      onEditClick={() => this.goto('editView')}
-      onAddClick={() => this.goto('addView')}/>
+      onEditClick={() => this.goto('edit')}
+      onAddClick={() => this.goto('add')}/>
       
     );
   },
@@ -80,13 +79,13 @@ render (component) {
     this.render(
       <AddComponent
       onHomeClick={() => this.goto('')}
-      onEditClick={() => this.goto('editView')}
-      onAddClick={() => this.goto('addView')}
+      onEditClick={() => this.goto('edit')}
+      onAddClick={() => this.goto('add')}
       onSubmitClick={() => this.goto('')}/>
     );
 
     $('#submit').click(function() {
-      var newPic = new picModel ({
+      var newPic = new PicModel ({
         name: $('#name').val(),
         info: $('#info').val(),
         picURL: $('#picURL').val(),
@@ -97,25 +96,25 @@ render (component) {
   },
 
     selectPic(id) {
-    let pic = this.pics.toJSON().find(item => item.objectId === id);
+    let pic = this.photos.toJSON().find(item => item.objectId === id);
     this.navigate('pics/' + id, {trigger: true});
 
     this.render(
         <Detailspage
           onHomeClick={() => this.goto('')}
           onPicSelect={this.selectPic.bind(this)} 
-          onAddClick={() => this.goto('addView')}
-          onEditClick={() => this.goto('editView')}
-          src={image.photoURL}
-          imageName={image.name}
-          picAbout={image.ipsum}
-          imageAddress={image.address}/>
+          onAddClick={() => this.goto('add')}
+          onEditClick={() => this.goto('edit')}
+          src={pic.photoURL}
+          imageName={pic.name}
+          picAbout={pic.ipsum}
+          imageAddress={pic.address}/>
       )
   },
   showPic(id) {
-    let image = this.pics.toJSON().find(item => item.objectId === id);
+    let image = this.photos.toJSON().find(item => item.objectId === id);
 
-    ReactDom.render(<Picture src={pic.photoURL}/>, this.el);
+    ReactDom.render(<PreviewImage src={pic.photoURL}/>, this.el);
   },
 
 

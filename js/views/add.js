@@ -16,13 +16,13 @@ export default React.createClass({
        <div>
         <button onClick={this.homeClickHandler}>Home</button>
 
-        <div className="newAddForm">
+        <div className="editForm">
           <form>
               <ul>
                 <li><input type="text" placeholder='Name' id='Name'/></li>
                 <li><input type="text" placeholder='Address' id='Address'/></li>
-                <li><input type="text" placeholder='Pic' id='Pics'/></li>
-                <li><input type="text"placeholder='info' id='info'/></li>
+                <li><input type="text" placeholder='photo url' id='photoUrl'/></li>
+                <li><input type="text"placeholder='Info' id='Ipsum'/></li>
               </ul>
             <button onClick={this.submitClickHandler} type="submit" id="submit">Submit</button>
           </form>

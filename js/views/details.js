@@ -21,7 +21,7 @@ export default React.createClass({
 	render() {
 		return (
 			<div>
-				<div className="thumbnail" onClick={this.clickHandler}>
+				<div className="smallPic" onClick={this.clickHandler}>
 					<img src = {this.props.src}/>
 				</div>
 			</div>

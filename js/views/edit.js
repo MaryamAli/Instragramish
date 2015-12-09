@@ -32,9 +32,10 @@ export default React.createClass({
           <form>
             <ul>
                 //1 is a pic, others are according to parse data
-              <li input type= 'text' placeholder ='Name' id='Name'></li>
-              <li input type= 'text' placeholder ='Address' id='Address'></li>
-              <li input type= 'text' placeholder ='Info' id='Info'></li>
+              <li input type= 'text' placeholder ='Name' id='name'></li>
+              <li input type= 'text' placeholder ='Address' id='address'></li>
+              <li input type= 'text' placeholder ='photo url' id='photoURL'></li>
+              <li input type= 'text' placeholder ='info' id='ipsum'></li>
             </ul>   
             <button onClick={this.submitClickHandler} type='submit' id ='submit'>Submit</button>
           </form>

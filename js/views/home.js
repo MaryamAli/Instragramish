@@ -19,9 +19,9 @@ export default React.createClass({
   }, 
 
   selectHandler(id) {
-    this.props.onPicSelect(id);
+    this.props.onImageSelect(id);
   },
-  getPic(image) {
+  getImage(image) {
     return(
         <Details src={image.photoURL} id={image.objectId} onSelect={this.selectHandler}/>
       );
@@ -33,7 +33,7 @@ export default React.createClass({
       <div className='picContainer'>this
         <button onClick ={this.addClickHandler}>Add</button>
         <div className= 'picList'>
-          {this.props.data.map(this.getPic)}
+          {this.props.data.map(this.getImage)}
         </div>
       </div>
       );

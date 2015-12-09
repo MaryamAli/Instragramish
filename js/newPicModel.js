@@ -1,6 +1,6 @@
 import Backbone from 'Backbone';
 
-let picModel = Backbone.Model.extend({
+let PicModel = Backbone.Model.extend({
 
   urlRoot: 'https://api.parse.com/1/classes/MyPeeps',
 
@@ -8,4 +8,4 @@ let picModel = Backbone.Model.extend({
 
 });
 
-export default picModel;
+export default PicModel;

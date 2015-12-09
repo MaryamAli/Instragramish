@@ -31,9 +31,9 @@ export default React.createClass({
           </div>
           <div className = 'picInfo'>
             <ul>
-              <li>Name: {this.props.picName}</li>
-              <li>Address: {this.props.picAddress}</li>
-              <li>Info: {this.props.picInfo}</li>
+              <li>Name: {this.props.imageName}</li>
+              <li>Address: {this.props.imageAddress}</li>
+              <li>Info: {this.props.imageInfo}</li>
             </ul>
           </div>
       </div>  

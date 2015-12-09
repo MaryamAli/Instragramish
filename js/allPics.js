@@ -1,11 +1,11 @@
 import Backbone from 'backbone';
-import picModel from './picModel';
+import PicModel from './newPicModel';
 
-let PhotosCollection = Backbone.Collection.extend({
+let AllPics = Backbone.Collection.extend({
 
   url: 'https://api.parse.com/1/classes/MyPeeps',
 
-  model: picModel,
+  model: PicModel,
 
   parse: function(data) {
     return data.results;
@@ -13,4 +13,4 @@ let PhotosCollection = Backbone.Collection.extend({
 
 });
 
-export default allPics;
+export default AllPics;
