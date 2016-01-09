@@ -73,6 +73,7 @@ var router = new _router2['default'](element);
 router.start();
 
 window.router = router;
+console.log('Does this show up?');
 // ReactDom.render(< ={}/>, document.querySelector('.app'));
 
 },{"./ajaxSetup":1,"./router":5,"react":172,"react-dom":16}],4:[function(require,module,exports){
@@ -204,7 +205,7 @@ exports['default'] = _backbone2['default'].Router.extend({
     });
   },
 
-  showEditView: function showEditView() {
+  showEdit: function showEdit() {
     var _this2 = this;
 
     this.render(_react2['default'].createElement(_viewsEdit2['default'], {
@@ -222,7 +223,7 @@ exports['default'] = _backbone2['default'].Router.extend({
       } }));
   },
 
-  showAddView: function showAddView() {
+  showAdd: function showAdd() {
     var _this3 = this;
 
     this.render(_react2['default'].createElement(_viewsAdd2['default'], {
@@ -290,7 +291,6 @@ exports['default'] = _backbone2['default'].Router.extend({
     _backbone2['default'].history.start();
   }
 });
-exports['default'] = Router;
 
 //showHome
 
@@ -635,7 +635,6 @@ exports['default'] = _react2['default'].createClass({
     return _react2['default'].createElement(
       'div',
       { className: 'picContainer' },
-      'this',
       _react2['default'].createElement(
         'button',
         { onClick: this.addClickHandler },

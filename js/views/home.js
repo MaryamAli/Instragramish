@@ -30,7 +30,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div className='picContainer'>this
+      <div className='picContainer'>
         <button onClick ={this.addClickHandler}>Add</button>
         <div className= 'picList'>
           {this.props.data.map(this.getImage)}
@@ -40,3 +40,4 @@ export default React.createClass({
         
   }
 });
+

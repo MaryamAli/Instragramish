@@ -8,4 +8,5 @@ var router= new Router(element);
 router.start();
 
 window.router=router;
+console.log('Does this show up?');
 // ReactDom.render(< ={}/>, document.querySelector('.app'));

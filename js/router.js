@@ -3,13 +3,13 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import $ from 'jquery';
 
-import PicList from './views/home';
+import PicListComponent from './views/home';
 import DetailComponent from './views/detailspage';
 import AddComponent from './views/add';
 import EditComponent from './views/edit';
 import SpinnerComponent from './views/spinner';
-import SmallPic from './views/details';
-import AllPics from './allPics.js';
+import SmallPicComponent from './views/details';
+import AllPicsCollection from './allPics.js';
 import PicModel from './newPicModel.js';
 
 
@@ -30,7 +30,7 @@ export default Backbone.Router.extend({
     this.el = appElement;
 
     // this.model = new PicModel();
-    this.photos = new AllPics();
+    this.photos = new AllPicsCollection();
     this.router = this;
 
   },
@@ -55,7 +55,7 @@ export default Backbone.Router.extend({
     
     this.photos.fetch().then(() => {
       this.render(
-        <PicList 
+        <PicListComponent
           onPicSelect={this.selectPic.bind(this)} 
           data={this.photos.toJSON()}
           onAddClick={() => this.goto('add')}
@@ -64,7 +64,7 @@ export default Backbone.Router.extend({
     });
   },
 
-    showEditView() {
+    showEdit() {
     this.render(
       <EditComponent
       onHomeClick={() => this.goto('')}
@@ -75,7 +75,7 @@ export default Backbone.Router.extend({
     );
   },
 
-    showAddView() {
+    showAdd() {
     this.render(
       <AddComponent
       onHomeClick={() => this.goto('')}
@@ -129,7 +129,7 @@ export default Backbone.Router.extend({
   }
 });
 
-export default Router;
+
 
 
 

@@ -31,7 +31,7 @@ export default React.createClass({
         <div className='editForm'>
           <form>
             <ul>
-                //1 is a pic, others are according to parse data
+                //1 is a pic, others are according to PARSE data
               <li input type= 'text' placeholder ='Name' id='name'></li>
               <li input type= 'text' placeholder ='Address' id='address'></li>
               <li input type= 'text' placeholder ='photo url' id='photoURL'></li>
@@ -44,3 +44,4 @@ export default React.createClass({
     );
   }
 });
+
